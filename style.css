@@ -13,3 +13,18 @@ body{
   background-color: black;
   color: white;
 }
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1vh;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover{
+  text-decoration: underline;
+}

@@ -1,6 +1,4 @@
 :root {
-  --p-light: #000;
-  --p-dark: #fff;
   --bg-light: #f0f4f8;
   --t-light: #333;
   --bg-dark: #121212;
@@ -41,11 +39,7 @@ nav {
   font-family: "Satisfy", serif;
 }
 
-nav div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+nav .n_itemL { padding-top: .6vh; }
 
 nav a {
   position: relative;
@@ -66,10 +60,35 @@ nav a::before {
   transition: transform 0.3s ease;
 }
 
-nav a:hover::before{
-  transform: scaleX(1);
+nav a:hover::before{ transform: scaleX(1); }
+
+body.dark-theme nav a::before{ background-color: #e0e0e0ce; }
+
+nav .n_itemL{ cursor: pointer; position: relative; }
+
+.dsn{ display: none; }
+
+@keyframes rotate-in {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes rotate-out {
+  0%   { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
 }
 
-body.dark-theme nav a::before{
-  background-color: #e0e0e0ce;
+#sun  { animation: rotate-out 0.5s forwards; }
+#moon { animation: rotate-in 0.5s forwards; }
+
+body.light-theme #sun {
+  display: block;
+  animation: rotate-in 0.5s forwards;
 }
+
+body.light-theme #moon, body.dark-theme #sun { display: none; }
+
+body.dark-theme #moon {
+  display: block;
+  animation: rotate-out 0.5s forwards;
+}
+
